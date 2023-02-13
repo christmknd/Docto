@@ -1,11 +1,16 @@
 <template>
-  
+  <div class="adminApp">
+    <NavAdmin/>
+    <router-view/>
+  </div>
 </template>
 
 <script>
-export default {
-    name: 'AdminApp'
+import NavAdmin from '../components/layout/NavAdmin.vue';
 
+export default {
+    name: "AdminApp",
+    components: { NavAdmin }
 }
 </script>
 

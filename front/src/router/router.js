@@ -12,6 +12,9 @@ import Signup from '../views/auth/Signup.vue';
 
 //admin 
 import AdminApp from '../views/AdminApp.vue';
+import AdminDashboard from '../components/admin/AdminDashboard.vue';
+import AdminConsultation from '../components/admin/AdminConsultation.vue'
+
 
 //patient
 import PatientApp from '../views/PatientApp.vue';
@@ -34,6 +37,16 @@ const routes = [
         path: '/admin', 
         component: AdminApp,
         children: [
+            {
+                path: '', 
+                name: 'AdminDashboard',
+                component: AdminDashboard   
+            },
+            {
+                path: 'consultation',
+                name: 'AdminConsultation',
+                component: AdminConsultation   
+            }
         ]
     }, 
     {
@@ -41,9 +54,16 @@ const routes = [
         component: DoctorApp,
         children: [
             {
-            path: 'doctor/:id',
+            path: 'profile',
+            name: 'DoctorProfile',
             component: DoctorProfile
             },
+
+            {
+            path: 'consultation',
+            name: 'DoctorConsultation',
+            component: DoctorConsultation  
+            }
         ]
     }, 
     {
@@ -51,8 +71,12 @@ const routes = [
         component: PatientApp,
         children: [
             {
-                path: 'patient/:id',
+                path: 'profile',
                 component: PatientProfile
+            }, 
+            {
+                path: 'consultation',
+                component: PatientConsultation
             }
         ]
     }, 
